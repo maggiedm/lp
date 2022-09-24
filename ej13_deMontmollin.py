@@ -31,19 +31,20 @@ def imprimir_fmt_tabla(col_a, col_b, col_c, col_d, col_e, col_f, col_g, col_h):
     print("{:^15} | {:^20} | {:^10} | {:^25} | {:^25} | {:^10} | {:^30} | {:^25} ".format(col_a, col_b, col_c, col_d,
                                                                                           col_e, col_f, col_g, col_h))
 
+if __name__ == "__main__":
 
-result_exacto = calculo_exacto(0)
-cant_decimales = 5
-imprimir_fmt_tabla("Valor Real", "Valor Representado",
-                   "Redondeado", "Error Absoluto Redondeo", "Error Relativo Redondeo",
-                   "Truncado", "Error Absoluto Truncamiento", "Error Relativo Truncamiento")
-print("-" * 185)
-for i in range(1, 31):
-    f_0 = calculo_aproximado(0, i)
-    redondeado = round(f_0, cant_decimales)
-    truncado = truncar(f_0, cant_decimales)
-    imprimir_fmt_tabla(result_exacto, f_0,
-                       redondeado, calculo_err_absoluto(result_exacto, redondeado),
-                       calculo_err_relativo(result_exacto, redondeado),
-                       truncado, calculo_err_absoluto(result_exacto, truncado),
-                       calculo_err_relativo(result_exacto, truncado))
+    result_exacto = calculo_exacto(0)
+    cant_decimales = 5
+    imprimir_fmt_tabla("Valor Real", "Valor Representado",
+                       "Redondeado", "Error Absoluto Redondeo", "Error Relativo Redondeo",
+                       "Truncado", "Error Absoluto Truncamiento", "Error Relativo Truncamiento")
+    print("-" * 185)
+    for i in range(1, 31):
+        f_0 = calculo_aproximado(0, i)
+        redondeado = round(f_0, cant_decimales)
+        truncado = truncar(f_0, cant_decimales)
+        imprimir_fmt_tabla(result_exacto, f_0,
+                           redondeado, calculo_err_absoluto(result_exacto, redondeado),
+                           calculo_err_relativo(result_exacto, redondeado),
+                           truncado, calculo_err_absoluto(result_exacto, truncado),
+                           calculo_err_relativo(result_exacto, truncado))

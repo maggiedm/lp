@@ -49,8 +49,10 @@ def punto_b():
         resultados_b.append(i_n)
         imprimir_fmt_tabla(n - 1, resultados_b[-1])
 
-punto_a()
+if __name__ == "__main__":
 
-print("\n"*3)
+    punto_a()
 
-punto_b()
+    print("\n"*3)
+
+    punto_b()
