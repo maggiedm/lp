@@ -1,4 +1,4 @@
-from math import exp
+from math import exp, cos, sin
 
 
 def validar_cambio_signo(ext_a, ext_b):
@@ -45,7 +45,10 @@ def newton_raphson(a, b, max, e):
         n += 1
         condicion = not (n > max or abs(x - xa) < e)
 
-    print("\n" + "La raiz es " + str(x))
+    if abs(x - xa) > e:
+        print("No Converge")
+    else:
+        print("\n" + "La raiz es " + str(x))
 
 
 def imprimir_fmt_tabla(i, val, fx, dfx, err):

@@ -1,4 +1,4 @@
-from math import exp
+from math import exp, cos
 
 
 def validar_cambio_signo(ext_a, ext_b):
