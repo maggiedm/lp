@@ -1,4 +1,4 @@
-from math import exp
+from math import exp, cos
 
 
 def validar_cambio_signo(ext_a, ext_b):
@@ -17,7 +17,7 @@ def x_sig(x_n, x_ant):
     return x_n - f(x_n) / aprox_df(x_n, x_ant)
 
 
-def secante(a, b, e):
+def secante(a, b, k, e):
     n = 0
     condicion = True
 
@@ -40,11 +40,14 @@ def secante(a, b, e):
         xa = x
         x = aux
 
-        condicion = not (abs(x - xa) < e)
         n += 1
+        condicion = not (abs(x - xa) < e or n >= k)
         imprimir_fmt_tabla(n, x, f(x), abs(x - xa))
 
-    print("\n" + "La raiz es " + str(x))
+    if abs(x - xa) > e:
+        print("No Converge")
+    else:
+        print("\n" + "La raiz es " + str(x))
 
 
 def imprimir_fmt_tabla(i, x_i, fx, err):
@@ -52,9 +55,9 @@ def imprimir_fmt_tabla(i, x_i, fx, err):
 
 
 if __name__ == "__main__":
-    n = 0
     a = 0
     b = 1
+    max = 20
     error = 1 * 10 ** -5
 
-    secante(a, b, error)
+    secante(a, b, max, error)

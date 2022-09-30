@@ -43,7 +43,7 @@ def newton_raphson(a, b, max, e):
         x = x_n(xa)
         imprimir_fmt_tabla(n, x, f(x), df(x), abs(x - xa))
         n += 1
-        condicion = not (n > max or abs(x - xa) < e)
+        condicion = not (n >= max or abs(x - xa) < e)
 
     if abs(x - xa) > e:
         print("No Converge")

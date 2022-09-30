@@ -24,7 +24,7 @@ def punto_fijo(xo, err, max_n):
         imprimir_fmt_tabla(n, xn, f(xn), e)
         n += 1
 
-        condicion = not (n > max_n or e < err)
+        condicion = not (n >= max_n or e < err)
         e = abs(xn - xo)
         xo = xn
 
